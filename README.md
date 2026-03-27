@@ -83,6 +83,29 @@ powershell -ExecutionPolicy Bypass -File scripts/build_windows_exe.ps1
 
 打包结果：`release/exam-reminder-windows.zip`。
 
+
+### 如果 Actions 里看不到 `Build Exam Reminder Executables`
+
+通常是下面几种原因：
+
+1. 这个工作流文件还没在 **默认分支**（main/master）上。
+2. 仓库的 **Actions 被禁用**（Settings -> Actions）。
+3. 你在 Fork 仓库里，未开启 Workflow 权限。
+
+快速处理：
+
+```bash
+# 1) 确认 workflow 文件在当前分支
+ls .github/workflows/build-executable.yml
+
+# 2) 推送到默认分支（main 或 master）
+git push origin main
+# 或
+# git push origin master
+```
+
+然后刷新 GitHub 的 Actions 页面即可看到。
+
 ## 为什么你在 GitHub 看不到我这里改的代码（同步问题）
 
 最常见原因是“本地提交没有推到你的远端仓库”。
