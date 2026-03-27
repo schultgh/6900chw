@@ -86,6 +86,19 @@ powershell -ExecutionPolicy Bypass -File scripts/build_windows_exe.ps1
 
 ### 如果 Actions 里看不到 `Build Exam Reminder Executables`
 
+
+> 你截图里的关键点：仓库默认分支是 `main`，你当前查看的是 `codex` 分支。
+> GitHub Actions 左侧工作流列表默认按“默认分支中的 workflow 文件”显示，
+> 所以如果 `build-executable.yml` 只在 `codex` 分支，还没合并到 `main`，就只会看到 `Auto Update Worker`。
+
+### 按你当前仓库的正确操作（最短路径）
+
+1. 打开 `Pull requests`，把 `codex -> main` 的 PR 合并。
+2. 合并后切回 `main` 分支刷新 Actions 页面。
+3. 这时会出现 **Build Exam Reminder Executables**。
+4. 点进该工作流后，点击 **Run workflow**。
+5. 完成后到 Artifacts 下载 Windows 的 `exam-reminder-windows`（里面有 `.exe`）。
+
 通常是下面几种原因：
 
 1. 这个工作流文件还没在 **默认分支**（main/master）上。
