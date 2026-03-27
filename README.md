@@ -64,6 +64,25 @@ python3 exam_reminder.py remind
 
 > 这样你不用安装 Python，也可以直接运行打包后的程序。
 
+
+## 直接拿 Windows 的 EXE（推荐）
+
+你可以不装 Python，直接下载 `exam_reminder.exe`：
+
+1. 打开仓库的 **Actions**。
+2. 进入 **Build Exam Reminder Executables**。
+3. 点击 **Run workflow** 并等待完成。
+4. 在 Artifacts 下载 `exam-reminder-windows` 压缩包。
+5. 解压后即可得到 `exam_reminder.exe`，双击或命令行运行都可以。
+
+如果你想在 Windows 本地自行打包，也可以执行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/build_windows_exe.ps1
+```
+
+打包结果：`release/exam-reminder-windows.zip`。
+
 ## 为什么你在 GitHub 看不到我这里改的代码（同步问题）
 
 最常见原因是“本地提交没有推到你的远端仓库”。
